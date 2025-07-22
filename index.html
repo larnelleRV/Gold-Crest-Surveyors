@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gold Crest Surveyors - Compare Survey Options</title>
+  <!-- Tailwind CSS CDN for styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom styles for multi-step form */
+    .step { display: none; }
+    .step.active { display: block; }
+    body { background-color: #171f2a; } /* Dark gray background for top section */
+    .container { max-width: 1200px; margin: 0 auto; padding: 1rem sm:2rem; }
+    /* Ensure video is responsive */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      overflow: hidden;
+      max-width: 100%;
+      background: #000;
+      margin-bottom: 1.5rem;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    /* Middle section with white background */
+    .middle-section { background-color: #ffffff; padding: 1rem sm:2rem; border-radius: 0.5rem; }
+    /* Lower section with dark gray background */
+    .lower-section { background-color: #171f2a; padding: 1rem sm:2rem; border-radius: 0.5rem; }
+  </style>
+</head>
+<body class="text-white">
+  <div class="container mx-auto px-4 py-6 sm:py-8">
+    <!-- Header -->
+    <div class="text-center mb-8 sm:mb-12">
+      <h1 class="text-2xl sm:text-3xl font-bold text-[#fed777]">Gold Crest Surveyors</h1>
+    </div>
+
+    <!-- YouTube Video Section -->
+    <div class="video-container mx-auto max-w-4xl">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/r0atm3pm6j8?si=Z1KDLDQVKHyNnnej" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <!-- Main Heading -->
+    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-[#fed777] text-center">Compare Our Survey Options</h1>
+    
+    <!-- Main Description -->
+    <p class="text-base sm:text-lg md:text-xl mb-6 text-center text-gray-300">Expert surveying services tailored for homebuyers, sellers, and property investors. Find the best option for your needs.</p>
+    
+    <div class="max-w-md mx-auto">
+      <!-- Form -->
+      <form id="surveyForm" class="bg-white text-[#171f2a] p-4 sm:p-6 rounded-lg shadow-lg" action="/submit" method="POST">
+        <!-- Step 1 - Property Information -->
+        <div class="step active">
+          <h2 class="text-lg sm:text-xl font-bold mb-4">About the Property</h2>
+          <select name="property_type" class="w-full p-3 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fed777]" required>
+            <option value="" disabled selected>Property Type</option>
+            <option value="flat">Flat</option>
+            <option value="house">House</option>
+            <option value="bungalow">Bungalow</option>
+          </select>
+          <input type="number" name="purchase_price" class="w-full p-3 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fed777]" placeholder="Purchase Price (£)" min="0" required>
+          <input type="text" id="address" name="address" class="w-full p-3 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fed777]" placeholder="Property Address (London postcodes only)" required>
+          <button type="button" class="next-btn w-full bg-[#fed777] text-[#171f2a] p-3 rounded-lg hover:bg-[#e6c45f] transition">Next Step</button>
+        </div>
+
+        <!-- Step 2 - Personal Details -->
+        <div class="step">
+          <h2 class="text-lg sm:text-xl font-bold mb-4">Your Details</h2>
+          <input type="text" name="name" class="w-full p-3 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fed777]" placeholder="Name" required>
+          <input type="text" name="surname" class="w-full p-3 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fed777]" placeholder="Surname" required>
+          <input type="tel" name="number" class="w-full p-3 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fed777]" placeholder="Phone Number" required>
+          <input type="email" name="email" class="w-full p-3 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fed777]" placeholder="Email Address" required>
+          <div class="mb-4">
+            <label class="block text-sm font-medium mb-2">Preferred Contact Method</label>
+            <div class="flex items-center">
+              <input type="checkbox" name="contact_call" id="contact_call" class="mr-2">
+              <label for="contact_call" class="mr-4">Call Me</label>
+              <input type="checkbox" name="contact_email" id="contact_email" class="mr-2">
+              <label for="contact_email">Email Me</label>
+            </div>
+          </div>
+          <button type="button" class="next-btn w-full bg-[#fed777] text-[#171f2a] p-3 rounded-lg hover:bg-[#e6c45f] transition">Next Step</button>
+        </div>
+
+        <!-- Step 3 - Final Details -->
+        <div class="step">
+          <select name="referral_source" class="w-full p-3 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#fed777]" required>
+            <option value="" disabled selected>Where did you hear about us?</option>
+            <option value="google">Google Search</option>
+            <option value="social_media">Social Media</option>
+            <option value="referral">Friend/Referral</option>
+            <option value="advert">Advertisement</option>
+            <option value="other">Other</option>
+          </select>
+          <button type="submit" class="w-full bg-[#fed777] text-[#171f2a] p-3 rounded-lg hover:bg-[#e6c45f] transition">Show My Matches</button>
+          <p class="text-sm mt-2 text-gray-600">By clicking "Show My Matches" you confirm that you agree to our <a href="/terms" class="underline">Terms and Conditions</a> and <a href="/privacy" class="underline">Privacy Policy</a>, and you agree to being contacted on WhatsApp.</p>
+        </div>
+      </form>
+      <p class="text-sm mt-4 text-center text-gray-300">No obligation, compare options in under 2 minutes.</p>
+    </div>
+  </div>
+
+  <!-- Middle Section with White Background -->
+  <div class="middle-section">
+    <!-- Benefits Section -->
+    <div class="mt-16 sm:mt-20">
+      <h2 class="text-2xl sm:text-3xl font-bold text-[#171f2a] mb-6 sm:mb-8 text-center">Why Choose Gold Crest Surveyors?</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+        <div>
+          <h3 class="text-lg sm:text-xl font-semibold mb-2 text-[#171f2a]">Renowned by Thousands</h3>
+          <p class="text-gray-600">Over 5,000 satisfied clients across the UK rely on our expert surveying services with confidence.</p>
+        </div>
+        <div>
+          <h3 class="text-lg sm:text-xl font-semibold mb-2 text-[#171f2a]">RICS Accredited</h3>
+          <p class="text-gray-600">Our surveyors are certified by the Royal Institution of Chartered Surveyors (RICS) for excellence.</p>
+        </div>
+        <div>
+          <h3 class="text-lg sm:text-xl font-semibold mb-2 text-[#171f2a]">Fast & Reliable</h3>
+          <p class="text-gray-600">Get your survey report quickly with clear insights to make informed decisions easily.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="mt-12 sm:mt-16">
+      <h2 class="text-2xl sm:text-3xl font-bold text-[#171f2a] mb-6 sm:mb-8 text-center">What Our Clients Say</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+        <div class="bg-white p-4 sm:p-6 rounded-lg shadow-md">
+          <p class="text-gray-600 mb-4">"Gold Crest provided a detailed homebuyer report that saved us from a costly mistake. Highly professional!"</p>
+          <p class="font-semibold text-[#171f2a]">– Sarah T., London</p>
+        </div>
+        <div class="bg-white p-4 sm:p-6 rounded-lg shadow-md">
+          <p class="text-gray-600 mb-4">"The valuation process was quick and transparent. I'd recommend Gold Crest to anyone buying a home."</p>
+          <p class="font-semibold text-[#171f2a]">– James R., Manchester</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lower Section with Dark Gray Background -->
+  <div class="lower-section">
+    <!-- CTA Section -->
+    <div class="text-center mt-8 sm:mt-12">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-4 text-[#fed777]">Ready to Compare?</h2>
+      <p class="text-base sm:text-lg">Fill out the form to explore your survey options today.</p>
+      <a href="#surveyForm" class="inline-block bg-[#fed777] text-[#171f2a] p-3 rounded-lg hover:bg-[#e6c45f] transition">Compare Now</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center mt-8 sm:mt-12 py-6 sm:py-8">
+      <p class="text-gray-300">© 2025 Gold Crest Surveyors. All rights reserved.</p>
+      <p class="mt-2 text-gray-300">Contact us: <a href="mailto:info@goldcrestsurveyors.com" class="underline text-[#fed777]">info@goldcrestsurveyors.com</a></p>
+    </footer>
+  </div>
+
+  <!-- JavaScript for Multi-Step Form -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const steps = document.querySelectorAll('.step');
+      const nextButtons = document.querySelectorAll('.next-btn');
+      let currentStep = 0;
+
+      nextButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          steps[currentStep].classList.remove('active');
+          currentStep++;
+          steps[currentStep].classList.add('active');
+        });
+      });
+
+      document.getElementById('surveyForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Form submitted!'); // Replace with actual form submission logic
+      });
+    });
+  </script>
+</body>
+</html>

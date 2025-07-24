@@ -14,15 +14,16 @@
     .step.active { display: block; }
     body { background-color: #171f2a; } /* Dark gray background for top section */
     .container { max-width: 1200px; margin: 0 auto; padding: 1rem 16rem sm:2rem; } /* Increased side padding */
-    /* Ensure video is responsive */
+    /* Ensure video fits without borders */
     .video-container {
       position: relative;
       padding-bottom: 56.25%; /* 16:9 aspect ratio */
       height: 0;
       overflow: hidden;
-      max-width: 100%;
-      background: #000;
-      margin-bottom: 1.5rem;
+      max-width: 560px; /* Match iframe original width */
+      width: 100%;
+      margin: 0 auto 1.5rem;
+      background: transparent; /* Remove black background */
     }
     .video-container iframe {
       position: absolute;
@@ -30,10 +31,8 @@
       left: 0;
       width: 100%;
       height: 100%;
-      border: none;
-      max-width: 560px;
-      max-height: 315px;
-      margin: 0 auto;
+      border: 0; /* Remove any border */
+      box-sizing: border-box; /* Ensure padding doesn’t affect size */
     }
     /* Middle section with white background */
     .middle-section { background-color: #ffffff; padding: 1rem sm:2rem; border-radius: 0.5rem; }
@@ -54,12 +53,12 @@
     <!-- Header with Logo Link -->
     <div class="text-center mb-8 sm:mb-12">
       <a href="https://goldcrestsurveyors.com" target="_blank">
-        <img src="logo.png" alt="Gold Crest Surveyors Logo" class="logo mx-auto">
+        <img src="LOGO-06.png" alt="Gold Crest Surveyors Logo" class="logo mx-auto">
       </a>
     </div>
 
     <!-- YouTube Video Section -->
-    <div class="video-container mx-auto max-w-4xl">
+    <div class="video-container mx-auto">
       <iframe width="560" height="315" src="https://www.youtube.com/embed/r0atm3pm6j8?si=Z1KDLDQVKHyNnnej" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
 

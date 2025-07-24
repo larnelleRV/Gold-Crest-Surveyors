@@ -20,7 +20,7 @@
       padding-bottom: 56.25%; /* 16:9 aspect ratio for landscape */
       height: 0;
       overflow: hidden;
-      max-width: 100%; /* Allow full width up to 560px on desktop */
+      max-width: 100%; /* Allow full width up to 560px */
       width: 100%;
       max-width: 560px; /* Cap at YouTube default width */
       margin: 0 auto 1.5rem;
@@ -42,10 +42,16 @@
         padding-bottom: 56.25%; /* Maintain 16:9 */
       }
     }
-    /* Desktop adjustment to ensure landscape */
-    @media (min-width: 641px) {
+    /* Desktop adjustments including 15.6-inch screens (e.g., 1366px width) */
+    @media (min-width: 641px) and (max-width: 1366px) {
       .video-container {
-        max-width: 560px; /* Fixed width for desktop */
+        max-width: 560px; /* Fixed width for 15.6-inch screens */
+        padding-bottom: 56.25%; /* Enforce 16:9 */
+      }
+    }
+    @media (min-width: 1367px) {
+      .video-container {
+        max-width: 560px; /* Cap at 560px for larger screens */
         padding-bottom: 56.25%; /* Enforce 16:9 */
       }
     }
@@ -74,7 +80,7 @@
     <!-- Header with Logo Link -->
     <div class="text-center mb-8 sm:mb-12">
       <a href="https://goldcrestsurveyors.com" target="_blank">
-        <img src="LOGO-04.png" alt="Gold Crest Surveyors Logo" class="logo mx-auto">
+        <img src="/LOGO-04.png" alt="Gold Crest Surveyors Logo" class="logo mx-auto">
       </a>
     </div>
 

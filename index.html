@@ -14,32 +14,38 @@
     .step.active { display: block; }
     body { background-color: #171f2a; } /* Dark gray background for top section */
     .container { max-width: 1200px; margin: 0 auto; padding: 1rem 16rem sm:2rem; } /* Increased side padding */
-    /* Ensure video fits without borders */
+    /* Ensure video fits without stretching */
     .video-container {
       position: relative;
       padding-bottom: 56.25%; /* 16:9 aspect ratio */
       height: 0;
       overflow: hidden;
-      max-width: 560px; /* Match iframe original width */
+      max-width: 560px; /* Original width */
       width: 100%;
       margin: 0 auto 1.5rem;
-      background: transparent; /* Remove black background */
+      background: transparent;
     }
     .video-container iframe {
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0; /* Remove any border */
-      box-sizing: border-box; /* Ensure padding doesn’t affect size */
+      width: 100% !important;
+      height: 100% !important;
+      border: 0;
+      box-sizing: border-box;
     }
     /* Middle section with white background */
     .middle-section { background-color: #ffffff; padding: 1rem sm:2rem; border-radius: 0.5rem; }
+    /* Benefits and Testimonials padding */
+    .benefits-section, .testimonials-section {
+      padding: 2rem; /* Padding on all sides */
+      margin-top: 2rem; /* Padding above */
+      margin-bottom: 2rem; /* Padding below */
+    }
     /* Benefits grid padding */
-    .benefits-grid { padding-left: 2rem; padding-right: 2rem; }
+    .benefits-grid { padding-left: 1rem; padding-right: 1rem; }
     /* Testimonials padding */
-    .testimonial { padding-left: 2rem; padding-right: 2rem; }
+    .testimonial { padding-left: 1rem; padding-right: 1rem; }
     /* Lower section with dark gray background */
     .lower-section { background-color: #171f2a; padding: 1rem sm:2rem; border-radius: 0.5rem; }
     /* Autocomplete styling */
@@ -117,8 +123,8 @@
 
   <!-- Middle Section with White Background -->
   <div class="middle-section">
-    <!-- Benefits Section -->
-    <div class="mt-16 sm:mt-20">
+    <!-- Benefits Section with Padding -->
+    <div class="benefits-section">
       <h2 class="text-2xl sm:text-3xl font-bold text-[#171f2a] mb-6 sm:mb-8 text-center">Why Choose Gold Crest Surveyors?</h2>
       <div class="benefits-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10">
         <div>
@@ -136,8 +142,8 @@
       </div>
     </div>
 
-    <!-- Testimonials Section -->
-    <div class="mt-12 sm:mt-16">
+    <!-- Testimonials Section with Padding -->
+    <div class="testimonials-section">
       <h2 class="text-2xl sm:text-3xl font-bold text-[#171f2a] mb-6 sm:mb-8 text-center">What Our Clients Say</h2>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
         <div class="testimonial bg-white p-4 sm:p-6 rounded-lg shadow-md">

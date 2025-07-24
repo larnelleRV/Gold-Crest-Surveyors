@@ -20,8 +20,9 @@
       padding-bottom: 56.25%; /* 16:9 aspect ratio for landscape */
       height: 0;
       overflow: hidden;
-      max-width: 560px; /* Desktop max width */
+      max-width: 100%; /* Allow full width up to 560px on desktop */
       width: 100%;
+      max-width: 560px; /* Cap at YouTube default width */
       margin: 0 auto 1.5rem;
       background: transparent;
     }
@@ -39,6 +40,13 @@
       .video-container {
         max-width: 100%; /* Full width on mobile */
         padding-bottom: 56.25%; /* Maintain 16:9 */
+      }
+    }
+    /* Desktop adjustment to ensure landscape */
+    @media (min-width: 641px) {
+      .video-container {
+        max-width: 560px; /* Fixed width for desktop */
+        padding-bottom: 56.25%; /* Enforce 16:9 */
       }
     }
     /* Middle section with white background */
@@ -66,7 +74,7 @@
     <!-- Header with Logo Link -->
     <div class="text-center mb-8 sm:mb-12">
       <a href="https://goldcrestsurveyors.com" target="_blank">
-        <img src="LOGO-04" alt="Gold Crest Surveyors Logo" class="logo mx-auto">
+        <img src="LOGO-04.png" alt="Gold Crest Surveyors Logo" class="logo mx-auto">
       </a>
     </div>
 

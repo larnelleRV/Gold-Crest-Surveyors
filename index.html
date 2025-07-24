@@ -14,13 +14,13 @@
     .step.active { display: block; }
     body { background-color: #171f2a; } /* Dark gray background for top section */
     .container { max-width: 1200px; margin: 0 auto; padding: 1rem 16rem sm:2rem; } /* Increased side padding */
-    /* Ensure video fits without stretching */
+    /* Ensure video fits responsively in landscape 16:9 */
     .video-container {
       position: relative;
-      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      padding-bottom: 56.25%; /* 16:9 aspect ratio for landscape */
       height: 0;
       overflow: hidden;
-      max-width: 560px; /* Original width */
+      max-width: 560px; /* Desktop max width */
       width: 100%;
       margin: 0 auto 1.5rem;
       background: transparent;
@@ -33,6 +33,13 @@
       height: 100% !important;
       border: 0;
       box-sizing: border-box;
+    }
+    /* Mobile adjustments */
+    @media (max-width: 640px) { /* Tailwind 'sm' breakpoint */
+      .video-container {
+        max-width: 100%; /* Full width on mobile */
+        padding-bottom: 56.25%; /* Maintain 16:9 */
+      }
     }
     /* Middle section with white background */
     .middle-section { background-color: #ffffff; padding: 1rem sm:2rem; border-radius: 0.5rem; }
@@ -59,7 +66,7 @@
     <!-- Header with Logo Link -->
     <div class="text-center mb-8 sm:mb-12">
       <a href="https://goldcrestsurveyors.com" target="_blank">
-        <img src="LOGO-06.png" alt="Gold Crest Surveyors Logo" class="logo mx-auto">
+        <img src="LOGO-04" alt="Gold Crest Surveyors Logo" class="logo mx-auto">
       </a>
     </div>
 
@@ -113,8 +120,8 @@
             <option value="advert">Advertisement</option>
             <option value="other">Other</option>
           </select>
-          <button type="submit" class="w-full bg-[#fed777] text-[#171f2a] p-3 rounded-lg hover:bg-[#e6c45f] transition">Show My Matches</button>
-          <p class="text-sm mt-2 text-gray-600">By clicking "Show My Matches" you confirm that you agree to our <a href="/terms" class="underline">Terms and Conditions</a> and <a href="/privacy" class="underline">Privacy Policy</a>, and you agree to being contacted on WhatsApp.</p>
+          <button type="submit" class="w-full bg-[#fed777] text-[#171f2a] p-3 rounded-lg hover:bg-[#e6c45f] transition">Submit</button>
+          <p class="text-sm mt-2 text-gray-600">By clicking "Submit" you confirm that you agree to our <a href="/terms" class="underline">Terms and Conditions</a> and <a href="/privacy" class="underline">Privacy Policy</a>, and you agree to being contacted on WhatsApp.</p>
         </div>
       </form>
       <p class="text-sm mt-4 text-center text-gray-300">No obligation, compare options in under 2 minutes.</p>
